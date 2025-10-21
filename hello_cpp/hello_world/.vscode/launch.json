@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "armToolchainPath": "/Users/fel_c/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin",
+            "name": "Debug Cortex M3",
+            "type": "cortex-debug",
+            "request": "launch",
+            "machine": "lm3s6965evb",
+            "executable": "${workspaceFolder}/build/zephyr/zephyr.elf",
+            "cwd" : "${workspaceFolder}",
+            "servertype": "qemu",
+            "breakAfterReset": true,
+            "showDevDebugOutput": "raw" ,
+            "toolchainPrefix": "arm-zephyr-eabi"
+        }
+    ]
+}

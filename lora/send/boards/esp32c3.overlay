@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) 2022 Espressif Systems (Shanghai) Co., Ltd.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/*
+*	ESP32 https://zephyrproject.org/how-to-set-up-esp32-gpio-pins-in-zephyr-rtos/
+*	GPIO0..GPIO31 → port &gpio0, pins 0..31
+*	GPIO32..GPIO39 → port &gpio1, pins 0..7
+*/
+/ {
+	aliases {
+		/* On ESP32-C3, only GPIO0~5 can be used
+		 * as wake-up sources
+		 */
+    
+    };
+};
+
+&i2c0 {
+	status = "okay";
+	bme688: bme688@76 {
+		compatible = "bosch,bme688";
+		reg = <0x76>;
+		label = "BME688";
+		status = "okay";
+	};
+
+};
+
+&spi3 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	pinctrl-0 = <&spim3_default>;
+	pinctrl-names = "default";
+	cs-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+
+	lora0: lora@0 {
+		compatible = "semtech,sx1276";
+		reg = <0>;
+		reset-gpios = <&gpio0 23 GPIO_ACTIVE_LOW>;
+		dio-gpios =
+			    /* SX1276 D0 -> GPIO26 */
+			    <&gpio0 26 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>,
+			    /* SX1276 D1 -> GPIO35 */
+			    <&gpio1 3 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>,
+			    /* SX1276 D1 -> GPIO34 */
+			    <&gpio1 2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>;
+		spi-max-frequency = <1000000>;
+		power-amplifier-output = "pa-boost";
+	};
+};
+

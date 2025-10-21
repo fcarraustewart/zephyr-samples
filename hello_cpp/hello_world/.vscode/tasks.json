@@ -1,0 +1,93 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "West Build",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"linux": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"windows": {
+				"command": "${userHome}/zephyrproject/.venv/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"args": [
+				"build",
+				"-p",
+				"always",
+				"-b",
+				"esp32c3_devkitm"
+			]
+		},
+		{
+			"label": "West Configurable Build",
+			"type": "shell",
+			"group": {
+				"kind": "build",
+			},
+			"linux": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"windows": {
+				"command": "${userHome}/zephyrproject/.venv/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"args": [
+				"build",
+				"-p",
+				"${input:pristine}",
+				"-b",
+				"${input:board}"
+			],
+			"problemMatcher": [
+				"$gcc"
+			]
+		},
+		{
+			"label": "West Flash",
+			"type": "shell",
+			"linux": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"windows": {
+				"command": "${userHome}/zephyrproject/.venv/Scripts/west.exe"
+			},
+			"osx": {
+				"command": "${userHome}/zephyrproject/.venv/bin/west"
+			},
+			"args": [
+				"flash"
+			],
+			"problemMatcher": [
+				"$gcc"
+			]
+		}
+	],
+	"inputs": [
+		{
+			"id": "board",
+			"type": "promptString",
+			"default": "esp32c3_devkitm",
+			"description": "See https://docs.zephyrproject.org/latest/boards/index.html"
+		},
+		{
+			"id": "pristine",
+			"type": "pickString",
+			"description": "Choose when to run a pristine build",
+			"default": "auto",
+			"options": [
+				"auto",
+				"always",
+				"never"
+			]
+		}
+	]
+}

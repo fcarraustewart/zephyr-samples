@@ -1,0 +1,7 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+// /Users/fel_c/zephyrproject/zephyr/tests/subsys/debug/gdbstub/boards/qemu_x86.overlay copy
+/ {
+	chosen {
+		zephyr,gdbstub-uart = &uart1;
+	};
+};

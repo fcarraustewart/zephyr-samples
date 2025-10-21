@@ -1,0 +1,54 @@
+(.venv) fel_c@Felipes-MacBook-Air zephyr % west espressif monitor -p=/dev/cu.usbserial-58EF0904591
+--- idf_monitor on /dev/cu.usbserial-58EF0904591 115200 ---
+--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H ---
+ets Jun  8 2016 00:22:57
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 188777542, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1184
+load:0x40078000,len:12784
+load:0x40080400,len:3032
+entry 0x400805e4
+[    20][I][configmanager.cpp:98] loadConfig(): [src/configmanager.cpp] Loading device configuration from NVRAM...
+[    22][I][configmanager.cpp:124] loadConfig(): [src/configmanager.cpp] Runtime configuration v3.2.1 loaded
+[    30][I][main.cpp:115] setup(): [src/main.cpp] Starting paxcounter_70d9f01f v3.2.1 (runmode=0 / restarts=0)
+[    38][I][main.cpp:116] setup(): [src/main.cpp] code build date: 1663600943
+[    45][I][main.cpp:132] setup(): [src/main.cpp] This is ESP32 chip with 2 CPU cores, WiFi/BT/BLE, silicon revision 1, 4MB embedded Flash
+[    57][I][main.cpp:134] setup(): [src/main.cpp] Internal Total heap 223000, internal Free Heap 195760
+[    67][I][main.cpp:140] setup(): [src/main.cpp] ChipRevision 1, Cpu Freq 240, SDK Version v4.4.1-1-gb8050b365e
+[    76][I][main.cpp:142] setup(): [src/main.cpp] Flash Size 4194304, Flash Speed 40000000
+[    84][I][main.cpp:144] setup(): [src/main.cpp] Wifi/BT software coexist version 1.2.0
+[    92][I][main.cpp:148] setup(): [src/main.cpp] IBM LMIC version 1.6.1468577746
+[    99][I][main.cpp:153] setup(): [src/main.cpp] Arduino LMIC version 4.1.1.0
+[   107][I][lorawan.cpp:173] printKey(): [src/lorawan.cpp] AppEUI: 70B3D50000000000
+[   114][I][lorawan.cpp:173] printKey(): [src/lorawan.cpp] DevEUI: F024F99338C0FEFF
+[   121][I][lorawan.cpp:173] printKey(): [src/lorawan.cpp] AppKey: 00000000000000000000000000000000
+[   131][I][i2c.cpp:41] i2c_scan(): [src/i2c.cpp] Starting I2C bus scan...
+[   137][W][Wire.cpp:204] begin(): Bus already started in Master Mode.
+[   261][I][i2c.cpp:72] i2c_scan(): [src/i2c.cpp] Device found at 0x3C, type = Unknown
+[   262][I][i2c.cpp:75] i2c_scan(): [src/i2c.cpp] 1 I2C device(s) found
+[   264][W][Wire.cpp:204] begin(): Bus already started in Master Mode.
+[ 10419][I][main.cpp:229] setup(): [src/main.cpp] Starting LED Controller...
+[ 10419][I][power.cpp:219] calibrate_voltage(): [src/power.cpp] ADC characterization based on reference voltage stored in eFuse
+[ 10430][I][main.cpp:275] setup(): [src/main.cpp] Starting libpax...
+[ 10432][I][main.cpp:284] setup(): [src/main.cpp] WIFISCAN: on
+[ 10437][I][main.cpp:290] setup(): [src/main.cpp] BLESCAN: on
+[ 10541][I][blescan.cpp:203] start_BLE_scan(): [bluetooth] Initializing bluetooth scanner ...
+[ 11176][I][blescan.cpp:113] hci_cmd_send_ble_scan_start(): [bluetooth] BLE Scanning started
+[ 11376][I][blescan.cpp:264] start_BLE_scan(): [bluetooth] Bluetooth scanner started
+[ 11376][I][main.cpp:308] setup(): [src/main.cpp] Starting rcommand interpreter...
+[ 11380][I][rcommand.cpp:516] rcmd_init(): [src/rcommand.cpp] Rcommand send queue created, size 55 Bytes
+[ 11389][I][lorawan.cpp:254] lmic_init(): [src/lorawan.cpp] LORA send queue created, size 530 Bytes
+[ 11412][I][lorawan.cpp:303] lmic_init(): [src/lorawan.cpp] Starting LMIC...
+[ 11414][I][sdcard.cpp:97] sdcard_init(): [src/sdcard.cpp] looking for SD-card...
+E (11441) sdmmc_common: sdmmc_init_ocr: send_op_cond (1) returned 0x107
+E (11442) vfs_fat_sdmmc: sdmmc_card_init failed (0x107).
+[ 11446][E][sdcard.cpp:158] sdcard_init(): [src/sdcard.cpp] SD-card not found (263)
+[ 11453][I][main.cpp:411] setup(): [src/main.cpp] Starting Interrupt Handler...
+[ 11460][I][main.cpp:439] setup(): [src/main.cpp] Starting Timers...
+[ 11499][I][timekeeper.cpp:409] time_init(): [src/timekeeper.cpp] Starting time pulse...
+[ 11500][I][timekeeper.cpp:202] timepulse_init(): [src/timekeeper.cpp] Timepulse: internal (ESP32 hardware timer)
+[ 12506][I][main.cpp:484] setup(): [src/main.cpp] Features: OLED LED BATT OTA BLE LORA PACKED WIFI TIME
+[ 12530][I][timesync.cpp:52] timesync_request(): [src/timesync.cpp] [12.530] Timeserver sync request started, seqNo#168
+

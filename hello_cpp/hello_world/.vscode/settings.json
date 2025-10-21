@@ -1,0 +1,19 @@
+{
+        // Hush CMake
+		"cmake.configureOnOpen": false,
+
+		// IntelliSense
+		"C_Cpp.default.compilerPath": "${userHome}/zephyr-sdk-0.16.8/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe",
+		"C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+
+		// File Associations
+		"files.associations": {
+			"__assert.h": "c",
+			"printk.h": "c"
+		},
+		"idf.adapterTargetName": "esp32c3",
+		"idf.openOcdConfigs": [
+			"board/esp32c3-builtin.cfg"
+		],
+		"idf.port": "/dev/tty.usbmodem1101"
+}

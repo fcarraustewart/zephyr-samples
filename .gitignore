@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+hello_cpp/hello_world/build
+build*
+hello_cpp/.DS_Store
+.DS_Store
